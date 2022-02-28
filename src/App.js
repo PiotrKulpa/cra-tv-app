@@ -2,30 +2,20 @@ import { useEffect, useState, useRef } from 'react'
 import logo from './logo.svg';
 import './App.css';
 
-import FocusableWrapper from './FocusableWrapper'
+import Focusable from './Focusable'
+import FocusableContext from './FocusableContext'
 
 function App() {
-
-  // TODO: one method to grab all focusable elements
-  // dynamicly set focus to next or prev focusable element
-  //  use css nth-child()
-
-  const [focusableIndex, setFocusableIndex] = useState(0);
-  useEffect(() => {
-  const focusableElements = document.getElementsByClassName('focusable');
-
-  });
-
-  console.log(focusableIndex);
-
   return (
     <div className="App">
       <header className="App-header">
-        <FocusableWrapper focusableIndex={focusableIndex} setFocusableIndex={setFocusableIndex} elIndex={0}>BOX 1</FocusableWrapper>
-        <FocusableWrapper focusableIndex={focusableIndex} setFocusableIndex={setFocusableIndex} elIndex={1}>BOX 2</FocusableWrapper>
-        <FocusableWrapper focusableIndex={focusableIndex} setFocusableIndex={setFocusableIndex} elIndex={2}>BOX 3</FocusableWrapper>
-        <FocusableWrapper focusableIndex={focusableIndex} setFocusableIndex={setFocusableIndex} elIndex={3}>BOX 4</FocusableWrapper>
-        <FocusableWrapper focusableIndex={focusableIndex} setFocusableIndex={setFocusableIndex} elIndex={4}>BOX 5</FocusableWrapper>
+        <FocusableContext>
+          <Focusable >BOX 1</Focusable>
+          <Focusable >BOX 2</Focusable>
+          <Focusable >BOX 3</Focusable>
+          <Focusable >BOX 4</Focusable>
+          <Focusable >BOX 5</Focusable>
+        </FocusableContext>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
